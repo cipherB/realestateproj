@@ -1,8 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  overflow-x: hidden !important;
+  padding: 0;
+  background-color: #fff;
+  color: #2a2a33;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +18,58 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Landing Page */
+.landing {
+  background-image: url("./assets/zillow-background1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.btn-service {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(0, 106, 255);
+  color: rgb(0, 106, 255);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  user-select: none;
+  padding: 9px 16px;
+  margin: 24px 0px 16px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  outline: none;
+  box-shadow: none;
+  width: auto;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;
+}
+
+.land-service:hover button {
+  background-color: rgb(0, 106, 255);
+  border: none;
+  color: rgb(255, 255, 255);
 }
