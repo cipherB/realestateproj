@@ -73,3 +73,13 @@ h1 {
   border: none;
   color: rgb(255, 255, 255);
 }
+
+@media (max-width: 700px) {
+  .landing {
+    background-image: url("./assets//zillow-background-mobile.webp");
+  }
+  h1 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+}
