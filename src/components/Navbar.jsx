@@ -5,7 +5,7 @@ import LogoWhite from '../assets/zillow-white.svg';
 
 const Navbar = () => {
   return (
-    <div className='w-full bg-white bg-transparent' >
+    <div className='w-full md:bg-white bg-transparent' >
       <div className='md:mx-[80px] mx-0' >
         <div className='w-full flex md:hidden px-4 justify-between h-[60px] items-center'>
           <div>
