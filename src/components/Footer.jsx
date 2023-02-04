@@ -9,7 +9,7 @@ import FooterArt from '../assets/footer-art.svg';
 
 const Footer = () => {
   return (
-    <div className='md:mx-20 w-full' >
+    <div className='md:px-20 w-full' >
       <nav className='border-y border-[#d8d8d8] py-6' >
         <ul 
           className='flex flex-col md:flex-row md:justify-center gap-x-5 md:items-center list-none
