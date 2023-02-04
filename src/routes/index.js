@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Landing from '../pages/Landing';
 
@@ -13,6 +14,9 @@ const index = () => {
         <Routes>
           <Route path="/" element={<Landing />} />
         </Routes>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   )

@@ -42,7 +42,7 @@ const Landing = () => {
               name="search"
               className='rounded-md px-4 bg-white w-[648px] h-[70px] 
               focus:border-none border-none focus:outline-none'
-              placeholder='Enter an adress, neighborhood, city or zip code.'
+              placeholder='Enter an address, neighborhood, city or zip code.'
             />
             <BsSearch 
               className='absolute right-4 cursor-pointer'
