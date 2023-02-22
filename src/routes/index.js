@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NavbarSticky from '../components/NavbarSticky';
 import Landing from '../pages/Landing';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 const index = () => {
   return <RoutePage />
@@ -26,11 +28,11 @@ const RoutePage = () => {
     <div>
       {
         scrollPos < 200 ? (
-          <div className='absolute top-0 w-full z-50 ' >
+          <div className='absolute top-0 z-50 w-full ' >
             <Navbar />
           </div>
         ) : (
-          <div className='fixed top-0 w-full z-50 ' >
+          <div className='fixed top-0 z-50 w-full ' >
             <NavbarSticky />
           </div>
         )
@@ -38,6 +40,8 @@ const RoutePage = () => {
       <div className='' >
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
       <div>
