@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../assets/zillow-logo.svg';
 import { AiOutlineMenu } from 'react-icons/ai';
 import LogoWhite from '../assets/zillow-white.svg';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { logout, auth } from '../service/firebase';
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+  useEffect(() => {},[user])
   return (
     <div className='w-full md:bg-white bg-transparent' >
       <div className='md:mx-[80px] mx-0' >
@@ -14,9 +18,17 @@ const Navbar = () => {
           <div>
             <img src={LogoWhite} alt="logo" className='w-[120px] h-[25px] cursor-pointer' />
           </div>
-          <div>
-            <a className='text-[15px] text-white' href="/" >Sign In</a>
-          </div>
+          {
+            !(user) ? (
+              <div>
+                <a className='text-[15px] text-white' href="/" >Sign In</a>
+              </div>
+            ) : (
+              <button className='border-none bg-transparent text-white text-[15px]' onClick={logout} >
+                Sign Out
+              </button>
+            )
+          }
         </div>
         <div className='w-full h-[80px] pr-6 md:flex justify-between items-center hidden' >
           <div>
@@ -36,7 +48,11 @@ const Navbar = () => {
               <li><a href="/" >Manage Rentals</a></li>
               <li><a href="/" >Advertise</a></li>
               <li><a href="/" >Help</a></li>
-              <li><a href="/" >Sign in</a></li>
+              {
+                !(user) ? 
+                (<li><a href="/" >Sign in</a></li>) :
+                (<li onClick={logout} >Sign Out</li>)
+              }
             </ul>
           </div>
         </div>

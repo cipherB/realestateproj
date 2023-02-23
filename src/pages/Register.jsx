@@ -19,6 +19,7 @@ const Register = () => {
     }
     if(user) {
       navigate("/");
+      console.log("user", user);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[user, loading]);
@@ -31,7 +32,7 @@ const Register = () => {
           id="name" 
           className="register__textBox" 
           value={name}
-          onClick={(e)=>setName(e.target.value)}
+          onChange={(e)=>setName(e.target.value)}
           placeholder="Full Name"
         />
         <input 
@@ -40,7 +41,7 @@ const Register = () => {
           id="email" 
           className="register__textBox" 
           value={email}
-          onClick={(e)=>setEmail(e.target.value)}
+          onChange={(e)=>setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input 
@@ -49,7 +50,7 @@ const Register = () => {
           id="password" 
           className="register__textBox" 
           value={password}
-          onClick={(e)=>setPassword(e.target.value)}
+          onChange={(e)=>setPassword(e.target.value)}
           placeholder="Password"
         />
         <button className="register__btn" onClick={register}>Register</button>
