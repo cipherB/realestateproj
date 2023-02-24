@@ -28,9 +28,7 @@ const RoutePage = () => {
     <div>
       {
         scrollPos < 200 ? (
-          <div className='absolute top-0 z-50 w-full ' >
-            <Navbar />
-          </div>
+          <Navbar />
         ) : (
           <div className='fixed top-0 z-50 w-full ' >
             <NavbarSticky />
