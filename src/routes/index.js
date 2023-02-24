@@ -4,8 +4,10 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NavbarSticky from '../components/NavbarSticky';
 import Landing from '../pages/Landing';
-import Login from '../pages/Login';
+// import Login from '../pages/Login';
 import Register from '../pages/Register';
+import ModalComponent from '../components/ModalComponent';
+import Login from '../components/modal/Login';
 
 const index = () => {
   return <RoutePage />
@@ -13,6 +15,7 @@ const index = () => {
 
 const RoutePage = () => {
   const [scrollPos, setScrollPos] = useState(0);
+  const [loginModal, setLoginModal] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -28,7 +31,12 @@ const RoutePage = () => {
     <div>
       {
         scrollPos < 200 ? (
-          <Navbar />
+          <div className='absolute top-0 z-50 w-full ' >
+            <Navbar 
+              loginModal={loginModal}
+              setLoginModal={setLoginModal}
+            />
+          </div>
         ) : (
           <div className='fixed top-0 z-50 w-full ' >
             <NavbarSticky />
@@ -38,13 +46,16 @@ const RoutePage = () => {
       <div className='' >
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>
       <div>
         <Footer />
       </div>
+      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} >
+        <Login />
+      </ModalComponent>
     </div>
   )
 }
