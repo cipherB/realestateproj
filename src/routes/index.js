@@ -53,7 +53,7 @@ const RoutePage = () => {
       <div>
         <Footer />
       </div>
-      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} >
+      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={600} >
         <Login />
       </ModalComponent>
     </div>
