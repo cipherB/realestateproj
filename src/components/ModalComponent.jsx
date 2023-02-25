@@ -10,7 +10,7 @@ const ModalComponent = ({ width, open, handleClose, children }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: width ?? 400,
-    bgcolor: '#dcdcdc',
+    bgcolor: '#fff',
     // border: '2px solid #000',
     boxShadow: 24,
     p: 4,

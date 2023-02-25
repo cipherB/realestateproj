@@ -5,18 +5,26 @@ import LogoWhite from '../assets/zillow-white.svg';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { logout, auth } from '../service/firebase';
 import ModalComponent from './ModalComponent';
-import Login from './modal/Login';
+import Login from '../pages/Login';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
   const [user] = useAuthState(auth);
   const [loginModal, setLoginModal] = useState(false);
   useEffect(() => {},[user])
   return (
-    <div className='w-full bg-transparent md:bg-white' >
+    <div 
+      className={`w-full bg-transparent md:bg-white 
+      ${location.pathname!=="/"&&"border border-gray-400"}`} 
+    >
       <div className='md:mx-[80px] mx-0' >
         <div className='w-full flex md:hidden px-4 justify-between h-[60px] items-center'>
           <div>
-            <AiOutlineMenu className='text-2xl text-white cursor-pointer' />
+            <AiOutlineMenu 
+              className={`text-2xl cursor-pointer ${location.pathname==="/"?"text-white":
+              "text-primary"}`} 
+            />
           </div>
           <div>
             <img src={LogoWhite} alt="logo" className='w-[120px] h-[25px] cursor-pointer' />
@@ -24,16 +32,20 @@ const Navbar = () => {
           {
             !(user) ? (
               <div>
-                <button 
-                  className='border-none bg-transparent text-white text-[15px]' 
-                  onClick={()=>setLoginModal(!loginModal)} 
-                  type="button"
+                <Link 
+                  className={`text-[15px] ${location.pathname==="/"?"text-white":
+                  "text-primary"}`} 
+                  to="/login"
                 >
                   Sign In
-              </button>
+              </Link>
               </div>
             ) : (
-              <button className='border-none bg-transparent text-white text-[15px]' onClick={logout} >
+              <button 
+                className={`border-none bg-transparent text-[15px] ${location.pathname==="/"?"text-white":
+                "text-primary"}`} 
+                onClick={logout} 
+              >
                 Sign Out
               </button>
             )
@@ -74,7 +86,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={600} >
+      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={500} >
         <Login />
       </ModalComponent>
     </div>

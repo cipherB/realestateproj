@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NavbarSticky from '../components/NavbarSticky';
 import Landing from '../pages/Landing';
-// import Login from '../pages/Login';
+import Login from '../pages/Login';
 import Register from '../pages/Register';
-import ModalComponent from '../components/ModalComponent';
-import Login from '../components/modal/Login';
 
 const index = () => {
   return <RoutePage />
@@ -15,6 +13,7 @@ const index = () => {
 
 const RoutePage = () => {
   const [scrollPos, setScrollPos] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -29,7 +28,12 @@ const RoutePage = () => {
   return (
     <div>
       {
-        scrollPos < 200 ? (
+        location.pathname!=="/" ? (
+          <div className='absolute top-0 z-50 w-full ' >
+            <Navbar />
+          </div>
+        ) :
+        (scrollPos < 200) ? (
           <div className='absolute top-0 z-50 w-full ' >
             <Navbar />
           </div>
@@ -42,7 +46,7 @@ const RoutePage = () => {
       <div className='' >
         <Routes>
           <Route path="/" element={<Landing />} />
-          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>
