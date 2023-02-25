@@ -4,7 +4,7 @@ import { auth, logInWithEmailAndPassword, signInWithGoogle } from '../service/fi
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Google from '../assets/google.png';
 
-const Login = () => {
+const Login = ({ setLoginModal, setRegisterModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
   const [user, loading, error] = useAuthState(auth);
@@ -16,7 +16,12 @@ const Login = () => {
     }
     if(user) navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[user, loading])
+  },[user, loading]);
+
+  const toggleModal = () => {
+    setLoginModal(false);
+    setRegisterModal(true);
+  }
   return (
     <div className='w-full h-full' >
       <div className='px-4 py-24 md:p-7' >
@@ -52,13 +57,18 @@ const Login = () => {
             onClick={signInWithGoogle}
           >
             <img src={Google} alt="google" className='w-4 h-4' />
-            Login with Google
+            Continue with Google
           </button>
           <div>
             <Link to='/reset' >Forgot Password</Link>
           </div>
           <div>
-            Don't have an account? <Link to='/register' >Register</Link> now.
+            Don't have an account?{" "}
+            <Link to="/register" className='md:hidden' >Register</Link> 
+            <button onClick={toggleModal} className='hidden bg-transparent border-none md:inline' >
+              Register
+            </button>
+            {" "}now.
           </div>
         </div>
       </div>

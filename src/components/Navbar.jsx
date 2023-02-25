@@ -7,11 +7,13 @@ import { logout, auth } from '../service/firebase';
 import ModalComponent from './ModalComponent';
 import Login from '../pages/Login';
 import { Link, useLocation } from 'react-router-dom';
+import Register from '../pages/Register';
 
 const Navbar = () => {
   const location = useLocation();
   const [user] = useAuthState(auth);
   const [loginModal, setLoginModal] = useState(false);
+  const [registerModal, setRegisterModal] = useState(false);
   useEffect(() => {},[user])
   return (
     <div 
@@ -87,7 +89,10 @@ const Navbar = () => {
         </div>
       </div>
       <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={500} >
-        <Login />
+        <Login setLoginModal={setLoginModal} setRegisterModal={setRegisterModal} />
+      </ModalComponent>
+      <ModalComponent open={registerModal} handleClose={()=>setRegisterModal(false)} width={500} >
+        <Register setLoginModal={setLoginModal} setRegisterModal={setRegisterModal} />
       </ModalComponent>
     </div>
   )
