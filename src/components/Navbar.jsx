@@ -7,8 +7,9 @@ import { logout, auth } from '../service/firebase';
 import ModalComponent from './ModalComponent';
 import Login from './modal/Login';
 
-const Navbar = ({ loginModal, setLoginModal }) => {
+const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [loginModal, setLoginModal] = useState(false);
   useEffect(() => {},[user])
   return (
     <div className='w-full bg-transparent md:bg-white' >
@@ -73,10 +74,7 @@ const Navbar = ({ loginModal, setLoginModal }) => {
           </div>
         </div>
       </div>
-      <ModalComponent
-        open={loginModal}
-        handleClose={()=>setLoginModal(false)}
-      >
+      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={600} >
         <Login />
       </ModalComponent>
     </div>

@@ -15,7 +15,6 @@ const index = () => {
 
 const RoutePage = () => {
   const [scrollPos, setScrollPos] = useState(0);
-  const [loginModal, setLoginModal] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -32,10 +31,7 @@ const RoutePage = () => {
       {
         scrollPos < 200 ? (
           <div className='absolute top-0 z-50 w-full ' >
-            <Navbar 
-              loginModal={loginModal}
-              setLoginModal={setLoginModal}
-            />
+            <Navbar />
           </div>
         ) : (
           <div className='fixed top-0 z-50 w-full ' >
@@ -53,9 +49,6 @@ const RoutePage = () => {
       <div>
         <Footer />
       </div>
-      <ModalComponent open={loginModal} handleClose={()=>setLoginModal(false)} width={600} >
-        <Login />
-      </ModalComponent>
     </div>
   )
 }

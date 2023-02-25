@@ -11,9 +11,10 @@ const ModalComponent = ({ width, open, handleClose, children }) => {
     transform: 'translate(-50%, -50%)',
     width: width ?? 400,
     bgcolor: '#dcdcdc',
-    border: '2px solid #000',
+    // border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    borderRadius: 4,
   };
 
   return (
