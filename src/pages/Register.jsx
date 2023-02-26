@@ -74,8 +74,11 @@ const Register = ({ setLoginModal, setRegisterModal }) => {
         </button>
         <div>
           Already have an account?{" "}
-          <Link to="/login" className='md:hidden' >Login</Link> 
-          <button onClick={toggleModal} className='hidden bg-transparent border-none md:inline' >
+          <Link to="/login" className='md:hidden text-primary' >Login</Link> 
+          <button 
+            onClick={toggleModal} 
+            className='hidden bg-transparent border-none cursor-pointer md:inline text-primary' 
+          >
             Login
           </button>
           {" "}now.

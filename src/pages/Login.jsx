@@ -60,12 +60,15 @@ const Login = ({ setLoginModal, setRegisterModal }) => {
             Continue with Google
           </button>
           <div>
-            <Link to='/reset' >Forgot Password</Link>
+            <Link to='/reset' className='cursor-pointer' >Forgot Password</Link>
           </div>
           <div>
             Don't have an account?{" "}
-            <Link to="/register" className='md:hidden' >Register</Link> 
-            <button onClick={toggleModal} className='hidden bg-transparent border-none md:inline' >
+            <Link to="/register" className='md:hidden text-primary' >Register</Link> 
+            <button 
+              onClick={toggleModal} 
+              className='hidden bg-transparent border-none cursor-pointer md:inline text-primary' 
+            >
               Register
             </button>
             {" "}now.

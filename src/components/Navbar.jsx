@@ -9,11 +9,14 @@ import Login from '../pages/Login';
 import { Link, useLocation } from 'react-router-dom';
 import Register from '../pages/Register';
 
-const Navbar = () => {
+const Navbar = ({
+  loginModal, 
+  setLoginModal,
+  registerModal, 
+  setRegisterModal
+}) => {
   const location = useLocation();
   const [user] = useAuthState(auth);
-  const [loginModal, setLoginModal] = useState(false);
-  const [registerModal, setRegisterModal] = useState(false);
   useEffect(() => {},[user])
   return (
     <div 
